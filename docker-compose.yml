@@ -1,0 +1,14 @@
+postgresql:
+  image: "postgres:9.6"
+  volumes_from:
+    - postgresql_data
+  environment:
+      POSTGRES_PASSWORD: 123456Tony
+  ports:
+    - 5432:5432
+
+postgresql_data:
+  image: cogniteev/echo
+  command: echo 'Data Container for PostgreSQL'
+  volumes:
+    - /var/lib/postgresql/data
